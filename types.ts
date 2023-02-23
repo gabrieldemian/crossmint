@@ -7,15 +7,6 @@ export interface Map {
   goal: string[][]
 }
 
-export interface Planet<T extends PLANET_ENDPOINT> {
-  endpoint?: T
-  // object with only 1 key containing the quality
-  quality?: QualityTwo<T>
-  name: PlanetName
-}
-
-export type PlanetName = "polyanet" | "cometh" | "soloon"
-
 /**
   *   Maps an astral object to it's API endpoint.
   */
@@ -37,13 +28,6 @@ export type Quality<T extends PLANET_ENDPOINT> =
   T extends PLANET_ENDPOINT.SOLOONS
   ? "blue" | "red" | "purple" | "white"
   : "up" | "down"
-
-export type QualityTwo<T extends PLANET_ENDPOINT> =
-  T extends PLANET_ENDPOINT.POLYANETS
-  ? never :
-  T extends PLANET_ENDPOINT.SOLOONS
-  ? Record<"color", "blue" | "red" | "purple" | "white">
-  : Record<"direction", "up" | "down">
 
 /**
   *   Props of the `operation` function.

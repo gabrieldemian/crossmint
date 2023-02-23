@@ -27,11 +27,6 @@ for (let row = 0; row < goal.length; row++) {
         const [quality, planet] = fullTile.split("_")
         const parsedPlanet = planet.toLowerCase().concat("s") as PLANET_ENDPOINT
 
-        //const planetFromName: Planet<typeof parsedPlanet> = {
-        //name: planet.toLowerCase() as PlanetName,
-        //}
-        //console.log("planet from name ", planetFromName)
-
         await operation<typeof parsedPlanet>({
             row,
             col,
